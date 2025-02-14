@@ -3,7 +3,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const postApi = createApi({
   reducerPath: "postApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/api" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://houseofedtech.vercel.app/api",
+  }),
   tagTypes: ["Posts"],
   endpoints: (builder) => ({
     // GET /posts?id=<userId>
