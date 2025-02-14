@@ -1,0 +1,13 @@
+version: "1.0"
+
+services:
+  app:
+    build:
+      context: .
+      target: prod
+    container_name: nextjs_app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: mongodb+srv://your-user:your-password@your-cluster.mongodb.net/your-database
