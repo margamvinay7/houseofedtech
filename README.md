@@ -1,36 +1,201 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# House OF EdTech
 
-## Getting Started
+### Next.js 14 App with Prisma & MongoDB**
+```markdown
+# 🚀 Next.js 14 + Prisma + MongoDB Full-Stack App
 
-First, run the development server:
+This is a **Next.js 14** full-stack application that includes **authentication, CRUD operations for posts and user profiles, and optimized performance** using best practices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+
+## 🌟 Features
+- **User Authentication:** Login & Signup with secure authentication.
+- **CRUD Operations:** Users can create, read, update, and delete posts.
+- **Profile Management:** Users can update their profile information.
+- **Zod Validation:** Ensuring data integrity and type safety.
+- **Optimized Performance:**
+  - Used `useCallback` for efficient re-renders.
+  - Avoided `"use client"` at the parent level for better SSR performance.
+  - Implemented **code-splitting** and caching mechanisms.
+- **Server-Side Rendering (SSR):** Faster page loads with dynamic data.
+- **Docker Support:** `Dockerfile` and `docker-compose` included.
+- **Tailwind CSS:** Responsive and modern UI.
+
+## 🛠️ Tech Stack
+- **Frontend:** Next.js 14, React.js, Tailwind CSS
+- **Backend:** Next.js API Routes, Prisma, MongoDB
+- **Tools & Deployment:** Git, Docker, Docker Compose
+
+---
+
+## 🚀 Getting Started (Local Setup)
+
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/your-repo/nextjs14-prisma-mongodb.git
+cd nextjs14-prisma-mongodb
 ```
 
-Open [https://houseofedtech.vercel.app](https://houseofedtech.vercel.app) with your browser to see the result.
+### 2️⃣ Install Dependencies
+```sh
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3️⃣ Setup Environment Variables
+Create a `.env` file in the root and add:
+```env
+DATABASE_URL="mongodb+srv://your-user:your-password@your-cluster.mongodb.net/your-database"
+TOKEN_SECRET="aifuieru374i2u34y837yriheirer458475842759jher2763722@&^#&@*^#&@*^@*&^"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4️⃣ Prisma Setup (MongoDB)
+```sh
+npx prisma generate
+npx prisma db push
+```
 
-## Learn More
+### 5️⃣ Run the Development Server
+```sh
+npm run dev
+```
+App will be live at **http://localhost:3000**
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🐳 Running with Docker
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1️⃣ Build and Start the Container
+```sh
+docker-compose up --build -d
+```
 
-## Deploy on Vercel
+### 2️⃣ Stop and Remove Containers
+```sh
+docker-compose down
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 🏗️ Code Structure
+```
+root-folder/
+│── prisma/            # Prisma schema
+│── src/
+│   ├── app/           # Next.js application
+│   ├── components/    # UI components
+│   ├── api/           # API Routes
+│   ├── utils/         # Helper functions
+│── public/            # Static assets (showcase images)
+│── .env
+│── Dockerfile
+│── docker-compose.yml
+│── next.config.js
+│── package.json
+│── README.md
+```
+
+---
+
+## 📦 Docker Setup
+
+### **Dockerfile**
+```dockerfile
+
+FROM node:20-alpine AS base
+WORKDIR /app
+
+# Install dependencies first for caching optimization
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Copy Prisma schema and generate client
+COPY prisma ./prisma
+RUN npx prisma generate
+
+# Copy project files
+COPY . .
+
+# Build Next.js app
+RUN npm run build
+
+# Production-ready container
+FROM node:20-alpine AS prod
+WORKDIR /app
+
+# Copy built app
+COPY --from=base /app /app
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "run", "start"]
+```
+
+### **Docker Compose**
+```yaml
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      target: prod
+    container_name: nextjs_app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: mongodb+srv://your-user:your-password@your-cluster.mongodb.net/your-database
+
+```
+
+---
+
+## 📸 UI Showcase
+<p align="center">
+  <img src="./public/home.png"  style="width:800px; height:400px;">
+  <img src="./public/login.png"  style="width:800px; height:400px;">
+  <img src="./public/createpost.png"  style="width:800px; height:400px;">
+  <img src="./public/profile.png"  style="width:800px; height:400px;">
+  
+
+</p>
+
+---
+
+---
+
+## 📌 Best Practices & Optimizations
+✅ **Performance Optimizations**
+- Used `useCallback` to prevent unnecessary re-renders.
+- Avoided `"use client"` in parent-level components for better SSR.
+- Implemented **code-splitting** for reduced bundle size.
+
+✅ **Database & API Efficiency**
+- MongoDB with Prisma ORM for easy query handling.
+- Used **Next.js API Routes** for backend logic.
+
+✅ **Security**
+- **JWT** for authentication.
+- **Environment Variables** for sensitive data.
+
+---
+
+## 📜 License
+This project is licensed under the **MIT License**.
+
+---
+
+## 💡 Future Improvements
+- Add real-time WebSockets for live updates.
+- Implement image uploads for profiles and posts.
+- Enhance UI with animations.
+
+---
+
+### 🚀 **Now your Next.js 14 app with Prisma & MongoDB is ready to go!**
+```
+
+---
+
