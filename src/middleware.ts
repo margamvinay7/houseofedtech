@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl;
-  const token = req.cookies.get("token")?.value;
+  // const { pathname } = req.nextUrl;
+  // const token = req.cookies.get("token")?.value;
   // if (pathname === "/login" || pathname === "/signup") {
   //   return NextResponse.next();
   // }
