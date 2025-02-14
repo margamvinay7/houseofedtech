@@ -194,8 +194,5 @@ This project is licensed under the **MIT License**.
 
 ---
 
-### 🚀 **Now your Next.js 14 app with Prisma & MongoDB is ready to go!**
-```
 
----
 
