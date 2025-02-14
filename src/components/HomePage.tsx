@@ -44,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <div className="border border-gray-300 shadow-md shadow-amber-200 m-4 rounded-md p-2 h-[calc(100vh-100px)]">
+    <div className="border border-gray-300 shadow-md shadow-amber-200 m-4 rounded-md p-2 h-[calc(100vh-180px)]">
       <Toaster
         position="top-center"
         reverseOrder={false}

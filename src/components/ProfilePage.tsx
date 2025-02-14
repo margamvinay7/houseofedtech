@@ -49,7 +49,7 @@ export default function ProfilePage() {
   if (!user) return <p className="text-gray-500">No user found.</p>;
 
   return (
-    <div className="p-6 m-5  shadow-amber-200 border rounded-lg shadow-md h-[calc(100vh-100px)] ">
+    <div className="p-6 m-5  shadow-amber-200 border rounded-lg shadow-md h-[calc(100vh-180px)] ">
       <div className="flex gap-x-3 border-b-4 pb-3 border-gray-200">
         <CircleUserRound className="w-16 h-16" />
         <div>
