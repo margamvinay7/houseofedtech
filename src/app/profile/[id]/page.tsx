@@ -1,4 +1,4 @@
-// server side rendering
+// server side rendering code
 // import { notFound } from "next/navigation";
 // import { UserData } from "@/types";
 // import API from "@/lib/api";

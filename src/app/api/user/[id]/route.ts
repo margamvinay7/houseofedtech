@@ -1,11 +1,13 @@
 import prisma from "@/db";
 import { NextRequest, NextResponse } from "next/server";
+
+// get user with posts
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   const id = params.id;
-  console.log("id is", id);
+
   try {
     const user = await prisma.user.findUnique({
       where: { id },
@@ -18,7 +20,7 @@ export async function GET(
       createdAt: user?.createdAt,
       posts: user?.posts,
     };
-    console.log("user", user);
+
     return NextResponse.json({ userData }, { status: 200 });
   } catch (error: unknown) {
     console.error("Error fetching posts:", error);

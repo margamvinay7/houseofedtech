@@ -4,8 +4,8 @@ import jwt from "jsonwebtoken";
 import { LoginDataSchema, loginSchema } from "@/types";
 import bcryptjs from "bcryptjs";
 
+// login route
 export async function POST(request: NextRequest) {
-  console.log("entered Login");
   try {
     const reqBody: LoginDataSchema = await request.json();
     const parsedData = loginSchema.safeParse(reqBody);

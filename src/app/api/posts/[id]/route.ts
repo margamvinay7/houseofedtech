@@ -1,6 +1,8 @@
 import prisma from "@/db";
 import { NextRequest, NextResponse } from "next/server";
 import { postSchema } from "@/types";
+
+// get post by id
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -18,11 +20,11 @@ export async function GET(
   }
 }
 
+// update post
 export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  console.log("in udpate");
   try {
     const id = params.id;
     const reqBody = await request.json();
@@ -52,6 +54,7 @@ export async function PUT(
   }
 }
 
+// delete post
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }

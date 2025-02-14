@@ -11,6 +11,7 @@ import {
   useGetPostQuery,
 } from "@/redux/services/postApi";
 
+//updatepostform
 export default function UpdatePostForm() {
   const router = useRouter();
   const { id }: { id: string } = useParams();

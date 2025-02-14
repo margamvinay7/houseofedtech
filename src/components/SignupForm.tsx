@@ -8,6 +8,8 @@ import { signUpSchema, SignUpDataSchema } from "@/types";
 import API from "@/lib/api";
 import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
+
+//sign up form
 export default function SignupForm() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();

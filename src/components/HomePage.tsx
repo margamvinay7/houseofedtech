@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useCallback } from "react";
 import { UserData } from "@/types";
 
+// home page
 export default function Home() {
   const user: Partial<UserData> | null = useGetUser();
 
@@ -68,6 +69,8 @@ export default function Home() {
           },
         }}
       />
+
+      {/* Posts Section */}
       <div className=" font-bold text-xl border-b-4 mb-5 p-4 border-gray-300">
         Posts
       </div>

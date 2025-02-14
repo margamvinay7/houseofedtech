@@ -10,6 +10,7 @@ import { loginReducers } from "@/redux/features/userSlice";
 import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
 
+// login form
 export default function LoginForm() {
   const [message, setMessage] = useState("");
   const router = useRouter();

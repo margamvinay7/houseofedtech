@@ -4,7 +4,6 @@ import bcryptjs from "bcryptjs";
 import { SignUpDataSchema, signUpSchema } from "@/types";
 
 export async function POST(request: NextRequest) {
-  console.log("enter signup");
   try {
     const reqbody: SignUpDataSchema = await request.json();
     const parsedData = signUpSchema.safeParse(reqbody);
@@ -33,7 +32,6 @@ export async function POST(request: NextRequest) {
       data: { name, email, password: hashedPassword },
     });
 
-    console.log("new user", newUser);
     return NextResponse.json(
       {
         message: "User created successfully",

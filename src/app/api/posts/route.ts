@@ -2,6 +2,7 @@ import prisma from "@/db";
 import { postSchema } from "@/types";
 import { NextRequest, NextResponse } from "next/server";
 
+// create post
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
@@ -28,11 +29,11 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// get post by user id
 export async function GET(request: NextRequest) {
-  console.log("entered posts with userid");
   const searchParams = request.nextUrl.searchParams;
 
-  //@ts-expect-error the code is error
+  //@ts-expect-error the code have type error
   const userId: string = searchParams.get("id");
   try {
     const posts = await prisma.post.findMany({ where: { userId } });

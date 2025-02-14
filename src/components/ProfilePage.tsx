@@ -12,7 +12,7 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch user data with useCallback to prevent re-creating the function
+  // fetch user data with useCallback to prevent re-creating the function
   const getUser = useCallback(async () => {
     if (!id) return;
 

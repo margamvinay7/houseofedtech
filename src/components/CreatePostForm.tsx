@@ -9,6 +9,7 @@ import { CreatePostDataSchema, createPostSchema, UserData } from "@/types";
 import { useCreatePostMutation } from "@/redux/services/postApi";
 import { useGetUser } from "@/hooks/useGetUser";
 
+// create post form
 export default function CreatePostForm() {
   const router = useRouter();
   const user: Partial<UserData> | null = useGetUser();
