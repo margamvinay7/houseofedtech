@@ -82,7 +82,7 @@ export default function LoginForm() {
             type="submit"
             className="bg-[rgb(58,36,74)] p-2 mt-4 rounded-md text-white"
           >
-            Login In
+            Log In
           </button>
         </form>
         <div className="flex justify-center gap-x-1 mt-3">
